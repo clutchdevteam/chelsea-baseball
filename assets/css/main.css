@@ -1,0 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;600;700&family=Hind:wght@400;600;700&display=swap');
+
+html {
+  scroll-behavior: smooth;
+}
+
+.site-wrapper {
+  @apply container px-4;
+}
+
+@screen lg {
+  .site-wrapper {
+    @apply px-0;
+  }
+}
+
+body {
+  @apply overflow-x-hidden font-body;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+*:focus-visible {
+  outline-color: #23cea0;
+  outline-style: auto;
+  outline-offset: 3px;
+  outline-width: 2px;
+}
+
+.page-enter-active,
+.page-leave-active {
+  transition: opacity 0.5s;
+}
+
+.page-enter,
+.page-leave-to {
+  opacity: 0;
+}
+
+*:hover {
+  @apply transition duration-150 ease-in-out;
+}
+
+.base-wrapper {
+  @apply container mx-auto px-4 lg:px-0;
+}
+
+.desktop-container {
+  @apply mx-auto px-4 lg:px-0;
+  max-width: 960px;
+}
