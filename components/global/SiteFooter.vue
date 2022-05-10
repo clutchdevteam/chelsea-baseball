@@ -2,9 +2,26 @@
   <div class="flex flex-col mt-16">
     <div class="bg-primary-light">
       <div
-        class="desktop-container flex flex-col lg:flex-row lg:justify-between lg:items-center py-4 lg:py-0"
+        class="
+          desktop-container
+          flex flex-col
+          lg:flex-row
+          lg:justify-between
+          lg:items-center
+          py-4
+          lg:py-0
+        "
       >
-        <BaseText class="text-white font-display font-medium text-lg opacity-100 py-4 lg:py-3">
+        <BaseText
+          class="
+            text-white
+            font-display font-medium
+            text-lg
+            opacity-100
+            py-4
+            lg:py-3
+          "
+        >
           {{ footerContent.preFooter.text }}
         </BaseText>
 
@@ -21,7 +38,15 @@
 
     <footer class="bg-primary-dark">
       <div
-        class="desktop-container flex flex-col items-center lg:flex-row lg:justify-between py-12 lg:py-2"
+        class="
+          desktop-container
+          flex flex-col
+          items-center
+          lg:flex-row
+          lg:justify-between
+          py-12
+          lg:py-2
+        "
       >
         <div class="py-5">
           <BaseImage
@@ -34,9 +59,11 @@
         <nav class="w-full lg:w-auto py-5">
           <ul class="flex justify-between md:justify-around lg:space-x-12">
             <li v-for="menu in footerContent.footerNav" :key="menu.id">
-              <BaseLink :href="menu.slug.cached_url" class="text-white opacity-75 border-none">{{
-                menu.title
-              }}</BaseLink>
+              <BaseLink
+                :href="menu.slug.cached_url"
+                class="text-white opacity-75 border-none"
+                >{{ menu.title }}</BaseLink
+              >
             </li>
           </ul>
         </nav>
@@ -46,18 +73,18 @@
 </template>
 
 <script>
-  export default {
-    props: {
-      footerContent: {
-        type: Object,
-        required: true,
-      },
+export default {
+  props: {
+    footerContent: {
+      type: Object,
+      required: true,
     },
-  }
+  },
+};
 </script>
 
 <style lang="postcss" scoped>
-  .nuxt-link-exact-active {
-    @apply opacity-100;
-  }
+.nuxt-link-exact-active {
+  @apply opacity-100;
+}
 </style>
