@@ -1,10 +1,17 @@
 <template>
   <header
-    :class="`z-[51] w-full flex items-center justify-between ${isHomePage ? 'absolute' : ''}`"
+    :class="`z-[51] w-full flex items-center justify-between ${
+      isHomePage ? 'absolute' : ''
+    }`"
   >
-    <div class="bg-primary-light rounded-br-md p-3 z-50">
+    <div class="p-3 z-50">
       <BaseLink href="/" :inert="isMobileMenuOpen">
-        <BaseImage v-if="logo" :src="logo.filename" :alt="logo.alt" />
+        <BaseImage
+          class="w-24"
+          v-if="logo"
+          :src="logo.filename"
+          :alt="logo.alt"
+        />
       </BaseLink>
     </div>
 
@@ -24,13 +31,19 @@
         >
           <span class="sr-only">Open main menu</span>
           <div class="p-4">
-            <BaseIcon class="w-8 h-8 text-primary-light" file="menu-icon" alt="Open Menu" />
+            <BaseIcon
+              class="w-8 h-8 text-primary-light"
+              file="menu-icon"
+              alt="Open Menu"
+            />
           </div>
 
           <Portal to="mobile-menu">
             <div
               :class="`z-[52] fixed inset-0 bg-black transition duration-150 ${
-                isMobileMenuOpen ? 'bg-opacity-75' : 'bg-opacity-0 pointer-events-none'
+                isMobileMenuOpen
+                  ? 'bg-opacity-75'
+                  : 'bg-opacity-0 pointer-events-none'
               }`"
               :inert="!isMobileMenuOpen"
               @keydown.esc="closeMenu"
@@ -42,7 +55,18 @@
               >
                 <div>
                   <button
-                    class="flex justify-center items-center bg-white rounded-full ml-4 mr-4 mt-4 h-12 w-12"
+                    class="
+                      flex
+                      justify-center
+                      items-center
+                      bg-white
+                      rounded-full
+                      ml-4
+                      mr-4
+                      mt-4
+                      h-12
+                      w-12
+                    "
                     ref="closeButtonRef"
                     @click="closeMenu"
                     type="button"
@@ -56,7 +80,9 @@
                   </button>
                 </div>
 
-                <div class="flex flex-col justify-between h-screen w-full bg-white">
+                <div
+                  class="flex flex-col justify-between h-screen w-full bg-white"
+                >
                   <nav role="navigation">
                     <ul>
                       <li
@@ -71,7 +97,11 @@
 
                   <div class="px-3 py-6">
                     <BaseLink href="/">
-                      <BaseImage v-if="logo" :src="logo.filename" :alt="logo.alt" />
+                      <BaseImage
+                        v-if="logo"
+                        :src="logo.filename"
+                        :alt="logo.alt"
+                      />
                     </BaseLink>
                   </div>
                 </div>
@@ -85,64 +115,67 @@
 </template>
 
 <script>
-  import { mapState } from 'vuex'
-  import { Portal } from 'portal-vue'
+import { mapState } from "vuex";
+import { Portal } from "portal-vue";
 
-  export default {
-    components: {
-      Portal,
+export default {
+  components: {
+    Portal,
+  },
+  props: {
+    nav: {
+      type: Array,
+      required: true,
     },
-    props: {
-      nav: {
-        type: Array,
-        required: true,
-      },
-      logo: {
-        type: Object,
-        default: () => {},
-      },
+    logo: {
+      type: Object,
+      default: () => {},
     },
-    computed: {
-      ...mapState('global', ['isMobileMenuOpen', 'pageHasModalOpen']),
-      isHomePage() {
-        return this.$route.fullPath === '/' || this.$route.fullPath === '/home'
-      },
+  },
+  computed: {
+    ...mapState("global", ["isMobileMenuOpen", "pageHasModalOpen"]),
+    isHomePage() {
+      return this.$route.fullPath === "/" || this.$route.fullPath === "/home";
     },
-    watch: {
-      $route(to, from) {
-        this.closeMenu()
-      },
+  },
+  watch: {
+    $route(to, from) {
+      this.closeMenu();
     },
-    methods: {
-      async toggleMobileMenu() {
-        await this.$store.commit('global/isMobileMenuOpen', !this.isMobileMenuOpen)
-        await this.$nextTick()
-        await this.$nextTick()
+  },
+  methods: {
+    async toggleMobileMenu() {
+      await this.$store.commit(
+        "global/isMobileMenuOpen",
+        !this.isMobileMenuOpen
+      );
+      await this.$nextTick();
+      await this.$nextTick();
 
-        this.$refs.closeButtonRef?.focus()
-      },
-      async closeMenu() {
-        await this.$store.commit('global/isMobileMenuOpen', false)
-        await this.$nextTick()
-        await this.$nextTick()
-
-        this.$refs.openButtonRef?.focus()
-      },
+      this.$refs.closeButtonRef?.focus();
     },
-  }
+    async closeMenu() {
+      await this.$store.commit("global/isMobileMenuOpen", false);
+      await this.$nextTick();
+      await this.$nextTick();
+
+      this.$refs.openButtonRef?.focus();
+    },
+  },
+};
 </script>
 
 <style lang="postcss">
-  nav ul li div a,
-  nav ul li div div button {
-    @apply p-6 text-black font-semibold border-t-2 border-transparent opacity-75;
-  }
+nav ul li div a,
+nav ul li div div button {
+  @apply p-6 text-black font-semibold border-t-2 border-transparent opacity-75;
+}
 
-  .desktop li div div ul {
-    @apply absolute bg-white drop-shadow-md z-50;
-  }
+.desktop li div div ul {
+  @apply absolute bg-white drop-shadow-md z-50;
+}
 
-  .nuxt-link-exact-active {
-    @apply border-t-2 opacity-100 text-primary-light lg:border-accent-light lg:border-opacity-100;
-  }
+.nuxt-link-exact-active {
+  @apply border-t-2 opacity-100 text-primary-light lg:border-accent-light lg:border-opacity-100;
+}
 </style>

@@ -1,42 +1,6 @@
 <template>
   <div class="flex flex-col mt-16">
-    <div class="bg-primary-light">
-      <div
-        class="
-          desktop-container
-          flex flex-col
-          lg:flex-row
-          lg:justify-between
-          lg:items-center
-          py-4
-          lg:py-0
-        "
-      >
-        <BaseText
-          class="
-            text-white
-            font-display font-medium
-            text-lg
-            opacity-100
-            py-4
-            lg:py-3
-          "
-        >
-          {{ footerContent.preFooter.text }}
-        </BaseText>
-
-        <div class="py-4 lg:py-3">
-          <BaseButton
-            :href="footerContent.preFooter.button[0].link.cached_url"
-            class="flex justify-center"
-          >
-            {{ footerContent.preFooter.button[0].btnText }}
-          </BaseButton>
-        </div>
-      </div>
-    </div>
-
-    <footer class="bg-primary-dark">
+    <footer class="bg-black">
       <div
         class="
           desktop-container
@@ -60,7 +24,7 @@
           <ul class="flex justify-between md:justify-around lg:space-x-12">
             <li v-for="menu in footerContent.footerNav" :key="menu.id">
               <BaseLink
-                :href="menu.slug.cached_url"
+                :href="menu.link.cached_url"
                 class="text-white opacity-75 border-none"
                 >{{ menu.title }}</BaseLink
               >

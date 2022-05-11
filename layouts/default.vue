@@ -1,12 +1,12 @@
 <template>
-  <div>
-    <!-- <SiteHeader :nav="mainNav" :logo="logo" :inert="hasOpenMenu" /> -->
+  <div class="min-h-screen flex flex-col">
+    <SiteHeader :nav="mainNav" :logo="logo" :inert="hasOpenMenu" />
 
-    <main :inert="hasOpenMenu">
+    <main class="flex-1" :inert="hasOpenMenu">
       <Nuxt />
     </main>
 
-    <!-- <SiteFooter :footer-content="footer" :inert="hasOpenMenu" /> -->
+    <SiteFooter :footer-content="footer" :inert="hasOpenMenu" />
 
     <PortalTarget name="modal"></PortalTarget>
     <PortalTarget name="mobile-menu"></PortalTarget>
