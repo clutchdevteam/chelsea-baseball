@@ -6,7 +6,7 @@ module.exports = {
     },
     extend: {
       fontFamily: {
-        display: ["EB Garamond", "serif"],
+        display: ["Graduate", "cursive"],
         body: ["Hind", "sans-serif"],
       },
       colors: {
