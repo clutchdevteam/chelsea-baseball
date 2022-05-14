@@ -36,13 +36,13 @@ h3,
 h4,
 h5,
 h6 {
-  @apply tracking-tighter font-display;
+  @apply tracking-tighter;
 }
 
 .h1,
 .h2,
 .h3 {
-  @apply font-semibold mb-5 uppercase;
+  @apply font-display font-semibold uppercase;
 }
 
 .h1 {
@@ -58,10 +58,10 @@ h6 {
 }
 
 .h4 {
-  @apply text-xl lg:text-2xl;
+  @apply text-xl font-semibold lg:text-2xl;
 }
 
 .h5 {
-  @apply text-xl;
+  @apply text-xl font-semibold;
 }
 </style>
