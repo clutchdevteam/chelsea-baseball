@@ -38,13 +38,13 @@ export default {
 
 <style lang="postcss" scoped>
 .btn {
-  @apply px-10 py-1 font-display rounded transition duration-150 ease-in-out border-2 border-transparent;
+  @apply px-10 py-2 font-display uppercase font-bold transition duration-150 ease-in-out border-2 border-transparent;
 
   &.btn-primary {
     @apply border-white border-2 text-white;
 
     &:hover {
-      @apply bg-white bg-opacity-20;
+      @apply bg-white bg-opacity-10;
     }
   }
 
