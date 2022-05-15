@@ -66,8 +66,6 @@ export default {
         version: "draft",
       });
 
-      console.log(res.data);
-      console.log("slug", fullSlug);
       this.story = res.data.story;
     } catch (e) {
       if (!e.response) {

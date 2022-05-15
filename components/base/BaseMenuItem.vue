@@ -75,9 +75,11 @@ export default {
       }
     },
     closeMenu() {
-      this.isOpen = false;
+      if (this.isOpen) {
+        this.isOpen = false;
 
-      this.$refs.menuButtonRef?.focus();
+        this.$refs.menuButtonRef?.focus();
+      }
     },
     handleKeyPress(e) {
       // Query to get focusable elements within the sidebar nav
