@@ -4,16 +4,6 @@ html {
   scroll-behavior: smooth;
 }
 
-.site-wrapper {
-  @apply container px-4;
-}
-
-@screen lg {
-  .site-wrapper {
-    @apply px-0;
-  }
-}
-
 body {
   @apply overflow-x-hidden font-body;
 
@@ -43,10 +33,10 @@ body {
 }
 
 .base-wrapper {
-  @apply container mx-auto px-4 lg:px-0;
+  @apply container mx-auto px-4 xl:px-0;
 }
 
 .desktop-container {
-  @apply mx-auto px-4 lg:px-0;
-  max-width: 960px;
+  @apply mx-auto px-4 xl:px-0;
+  max-width: 1080px;
 }

@@ -38,12 +38,6 @@ body {
   margin: 0;
 }
 
-.site-wrapper {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
-
 header,
 footer {
   flex-grow: 0;
