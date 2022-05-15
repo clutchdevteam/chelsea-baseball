@@ -5,7 +5,7 @@
     </div>
 
     <div class="lg:mx-6 flex flex-col space-y-5">
-      <BaseHeading class="text-primary-default" tag="h2" size="h3">
+      <BaseHeading class="text-primary-default" size="h2">
         {{ block.heading }}
       </BaseHeading>
 
@@ -15,7 +15,7 @@
         :alt="block.image.alt"
       />
 
-      <BaseHeading tag="h3" size="h4">{{ block.sub_heading }}</BaseHeading>
+      <BaseHeading size="h3">{{ block.sub_heading }}</BaseHeading>
 
       <BaseText> {{ block.text }} </BaseText>
     </div>

@@ -3,7 +3,7 @@ export const state = () => ({
   isMobileMenuOpen: false,
   pageHasModalOpen: false,
   mainNav: [],
-  legalNag: [],
+  legalNav: [],
   logo: null,
   footer: {
     footerNav: [],

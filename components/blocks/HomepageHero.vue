@@ -1,5 +1,42 @@
 <template>
-  <div>hero</div>
+  <section class="hero relative flex pt-48 lg:pt-32 mb-48">
+    <div class="bg-clip" />
+    <BaseBackgroundImage class="bg-inner-clip" :image="bgImage" />
+
+    <div
+      class="
+        desktop-container
+        flex flex-col
+        lg:flex-row
+        relative
+        items-center
+        z-30
+        text-white
+        space-y-12
+        lg:space-y-0
+      "
+    >
+      <div class="flex flex-col space-y-5">
+        <BaseHeading size="h1">{{ block.heading }}</BaseHeading>
+
+        <BaseText class="text-lg lg:text-2xl" v-if="block.subheading">
+          {{ block.subheading }}
+        </BaseText>
+
+        <div>
+          <BaseButton :href="block.button[0].link.cached_url">
+            {{ block.button[0].text }}
+          </BaseButton>
+        </div>
+      </div>
+
+      <BaseImage
+        class="w-full max-w-[450px] lg:translate-y-16"
+        :src="block.image.filename"
+        :alt="block.image.alt"
+      />
+    </div>
+  </section>
 </template>
 
 <script>
@@ -10,7 +47,43 @@ export default {
       required: true,
     },
   },
+  computed: {
+    bgImage() {
+      let image = {};
+
+      if (this.block.backgroundImage.filename.length) {
+        image = {
+          src: this.block.backgroundImage.filename,
+          alt: this.block.backgroundImage.alt,
+        };
+      } else {
+        image = {
+          src: "./bg_image.png",
+          alt: "A crowd of people cheer at a baseball stadium",
+        };
+      }
+
+      return image;
+    },
+  },
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style scoped>
+.bg-clip {
+  @apply absolute h-full w-full bg-gray-200;
+  clip-path: polygon(0 0, 100% 0, 100% 65%, 0 60%);
+}
+.bg-inner-clip {
+  clip-path: polygon(0 0, 100% 0, 100% 80%, 0 85%);
+}
+
+@screen lg {
+  .bg-clip {
+    clip-path: polygon(0 0, 100% 0, 100% 80%, 0 75%);
+  }
+  .bg-inner-clip {
+    clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+  }
+}
+</style>

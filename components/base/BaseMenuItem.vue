@@ -11,13 +11,11 @@
       {{ menu.title }}
     </button>
 
-    <transition name="submenu" appear>
-      <ul v-if="isOpen" @keydown.esc.stop="closeMenu" :id="submenuId">
-        <li v-for="(menu, index) in menu.submenus" :key="index">
-          <BaseMenu :menu="menu" :depth="depth + 1" />
-        </li>
-      </ul>
-    </transition>
+    <ul v-if="isOpen" @keydown.esc.stop="closeMenu" :id="submenuId">
+      <li v-for="(menu, index) in menu.submenus" :key="index">
+        <BaseMenu :menu="menu" :depth="depth + 1" />
+      </li>
+    </ul>
   </div>
 </template>
 
@@ -106,17 +104,3 @@ export default {
   },
 };
 </script>
-
-<style>
-.submenu-enter-active,
-.submenu-leave-active {
-  will-change: opacity;
-  transition: all 300ms ease-in-out;
-}
-
-.submenu-enter-from,
-.submenu-leave-to {
-  transform: translateY(-20px);
-  opacity: 0;
-}
-</style>

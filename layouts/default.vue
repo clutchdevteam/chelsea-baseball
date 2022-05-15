@@ -1,5 +1,9 @@
 <template>
-  <div class="min-h-screen flex flex-col">
+  <div
+    :class="`min-h-screen flex flex-col ${
+      hasOpenMenu ? 'h-screen overflow-hidden' : ''
+    }`"
+  >
     <SiteHeader
       :nav="mainNav"
       :legal-nav="legalNav"
