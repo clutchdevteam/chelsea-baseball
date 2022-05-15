@@ -6,8 +6,8 @@
         hidden
         lg:flex
         desktop-container
-        relative
         bg-black
+        relative
         justify-between
         items-center
         shadow-lg
@@ -16,7 +16,21 @@
       <nav>
         <ul class="flex">
           <li v-for="menu in nav" :key="menu.id">
-            <BaseMenu :menu="menu" :depth="0" />
+            <BaseMenuItem
+              class="nav-submenu"
+              v-if="menu.submenus"
+              :menu="menu"
+              :depth="depth + 1"
+            />
+
+            <nuxt-link
+              class="block"
+              v-else
+              :id="menu.title.toLowerCase().replace(' ', '-')"
+              :to="$formRoute({ url: menu.link.cached_url })"
+            >
+              {{ menu.title }}
+            </nuxt-link>
           </li>
         </ul>
       </nav>
@@ -45,7 +59,7 @@
       <div>
         <BaseLink href="/" :inert="isMobileMenuOpen">
           <BaseImage
-            class="w-20"
+            class="w-16"
             v-if="logo"
             :src="logo.filename"
             :alt="logo.alt"
@@ -53,7 +67,7 @@
         </BaseLink>
       </div>
 
-      <div class="mobile lg:hidden">
+      <div class="lg:hidden">
         <button
           ref="openButtonRef"
           @click="toggleMobileMenu"
@@ -71,7 +85,7 @@
 
           <Portal to="mobile-menu">
             <div
-              :class="`z-[52] fixed inset-0 bg-black transition duration-150 ${
+              :class="`mobile z-[52] fixed inset-0 bg-black transition duration-150 ${
                 isMobileMenuOpen
                   ? 'bg-opacity-75'
                   : 'bg-opacity-0 pointer-events-none'
@@ -104,7 +118,7 @@
                   >
                     <span class="sr-only">Close menu</span>
                     <BaseIcon
-                      class="w-6 h-6 text-primary-light"
+                      class="w-6 h-6 text-primary-default"
                       file="close-icon"
                       alt="Close Menu"
                     />
@@ -117,14 +131,18 @@
                   <nav role="navigation">
                     <ul>
                       <li
-                        class="py-3 px-4 border-b border-gray-300"
+                        class="p-4 border-b border-gray-100"
                         v-for="menu in nav"
                         :key="menu.id"
                       >
-                        <BaseMenu :menu="menu" :depth="0" />
+                        <BaseMenu
+                          class="mobile-submenu"
+                          :menu="menu"
+                          :depth="0"
+                        />
                       </li>
                       <li
-                        class="py-3 px-4 border-b border-gray-300"
+                        class="p-4 border-b border-gray-100"
                         v-for="menu in legalNav"
                         :key="menu.id"
                       >
@@ -201,16 +219,40 @@ export default {
 .desktop nav {
   @apply z-50;
 }
-.desktop nav ul li div div button,
-.desktop nav ul li div a {
+.desktop nav ul li div button,
+.desktop nav ul li a {
   @apply text-white p-6;
 }
 
-.desktop nav ul li div .submenu ul {
-  @apply absolute bg-white shadow-md;
+.desktop nav ul li > a,
+.nav-submenu button {
+  @apply bg-black;
+}
+
+.desktop nav ul li .nav-submenu ul {
+  @apply absolute bg-white shadow-md mt-2;
+
+  z-index: -1;
+}
+
+.desktop nav ul li .nav-submenu ul li a {
+  @apply text-primary-default px-6 p-3;
 }
 
 .desktop .nuxt-link-exact-active {
-  @apply border-t-2 opacity-100 text-primary-light lg:border-primary-light lg:border-opacity-100;
+  @apply bg-white bg-opacity-10;
+}
+
+.mobile nav,
+.mobile nav button {
+  @apply font-semibold  text-lg;
+}
+
+.mobile-submenu ul a {
+  @apply text-black p-2;
+}
+
+.mobile .nuxt-link-exact-active {
+  @apply text-primary-default;
 }
 </style>

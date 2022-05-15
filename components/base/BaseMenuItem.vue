@@ -1,5 +1,5 @@
 <template>
-  <div :id="`${menuId}-wrapper`" class="submenu" @keydown.stop="handleKeyPress">
+  <div :id="`${menuId}-wrapper`" @keydown.stop="handleKeyPress">
     <button
       @click.prevent="toggleMenu(menu)"
       :id="menuId"
@@ -11,11 +11,13 @@
       {{ menu.title }}
     </button>
 
-    <ul v-if="isOpen" @keydown.esc.stop="closeMenu" :id="submenuId">
-      <li v-for="(menu, index) in menu.submenus" :key="index">
-        <BaseMenu :menu="menu" :depth="depth + 1" />
-      </li>
-    </ul>
+    <transition name="submenu" appear>
+      <ul v-show="isOpen" @keydown.esc.stop="closeMenu" :id="submenuId">
+        <li v-for="(menu, index) in menu.submenus" :key="index">
+          <BaseMenu :menu="menu" :depth="depth + 1" />
+        </li>
+      </ul>
+    </transition>
   </div>
 </template>
 
@@ -104,3 +106,18 @@ export default {
   },
 };
 </script>
+
+<style>
+.submenu-enter-active,
+.submenu-leave-active {
+  transition: all 150ms ease-in-out;
+}
+
+@screen lg {
+  .submenu-enter,
+  .submenu-leave-to {
+    opacity: 0;
+    transform: translateY(-20px) !important;
+  }
+}
+</style>
