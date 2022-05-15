@@ -11,13 +11,6 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-*:focus-visible {
-  outline-color: #23cea0;
-  outline-style: auto;
-  outline-offset: 3px;
-  outline-width: 2px;
-}
-
 .page-enter-active,
 .page-leave-active {
   transition: opacity 0.5s;
