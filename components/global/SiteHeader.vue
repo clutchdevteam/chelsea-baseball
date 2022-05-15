@@ -1,26 +1,57 @@
 <template>
-  <header
-    :class="`z-[51] w-full flex items-center justify-between ${
-      isHomePage ? 'absolute' : ''
-    }`"
-  >
-    <div class="p-3 z-50">
-      <BaseLink href="/" :inert="isMobileMenuOpen">
-        <BaseImage
-          class="w-24"
-          v-if="logo"
-          :src="logo.filename"
-          :alt="logo.alt"
-        />
-      </BaseLink>
+  <header class="absolute w-full z-[51] my-4 lg:my-8">
+    <div
+      class="
+        desktop
+        hidden
+        lg:flex
+        desktop-container
+        relative
+        bg-black
+        justify-between
+        items-center
+        shadow-lg
+      "
+    >
+      <nav>
+        <ul class="flex">
+          <li v-for="menu in nav" :key="menu.id">
+            <BaseMenu :menu="menu" :depth="0" />
+          </li>
+        </ul>
+      </nav>
+
+      <div class="absolute w-full">
+        <BaseLink href="/" :inert="isMobileMenuOpen">
+          <BaseImage
+            class="w-24 mx-auto"
+            v-if="logo"
+            :src="logo.filename"
+            :alt="logo.alt"
+          />
+        </BaseLink>
+      </div>
+
+      <nav>
+        <ul class="flex">
+          <li v-for="menu in legalNav" :key="menu.id">
+            <BaseMenu :menu="menu" :depth="0" />
+          </li>
+        </ul>
+      </nav>
     </div>
 
-    <nav>
-      <ul class="desktop hidden lg:flex mr-2">
-        <li v-for="menu in nav" :key="menu.id" class="px-6">
-          <BaseMenu :menu="menu" :depth="0" />
-        </li>
-      </ul>
+    <div class="mobile lg:hidden flex justify-between pl-4">
+      <div>
+        <BaseLink href="/" :inert="isMobileMenuOpen">
+          <BaseImage
+            class="w-20"
+            v-if="logo"
+            :src="logo.filename"
+            :alt="logo.alt"
+          />
+        </BaseLink>
+      </div>
 
       <div class="mobile lg:hidden">
         <button
@@ -32,7 +63,7 @@
           <span class="sr-only">Open main menu</span>
           <div class="p-4">
             <BaseIcon
-              class="w-8 h-8 text-primary-light"
+              class="w-8 h-8 text-white"
               file="menu-icon"
               alt="Open Menu"
             />
@@ -92,25 +123,22 @@
                       >
                         <BaseMenu :menu="menu" :depth="0" />
                       </li>
+                      <li
+                        class="py-3 px-4 border-b border-gray-300"
+                        v-for="menu in legalNav"
+                        :key="menu.id"
+                      >
+                        <BaseMenu :menu="menu" :depth="0" />
+                      </li>
                     </ul>
                   </nav>
-
-                  <div class="px-3 py-6">
-                    <BaseLink href="/">
-                      <BaseImage
-                        v-if="logo"
-                        :src="logo.filename"
-                        :alt="logo.alt"
-                      />
-                    </BaseLink>
-                  </div>
                 </div>
               </div>
             </div>
           </Portal>
         </button>
       </div>
-    </nav>
+    </div>
   </header>
 </template>
 
@@ -124,6 +152,10 @@ export default {
   },
   props: {
     nav: {
+      type: Array,
+      required: true,
+    },
+    legalNav: {
       type: Array,
       required: true,
     },
@@ -166,16 +198,19 @@ export default {
 </script>
 
 <style lang="postcss">
-nav ul li div a,
-nav ul li div div button {
-  @apply p-6 text-black font-semibold border-t-2 border-transparent opacity-75;
+.desktop nav {
+  @apply z-50;
+}
+.desktop nav ul li div div button,
+.desktop nav ul li div a {
+  @apply text-white p-6;
 }
 
-.desktop li div div ul {
-  @apply absolute bg-white drop-shadow-md z-50;
+.desktop nav ul li div .submenu ul {
+  @apply absolute bg-white shadow-md;
 }
 
-.nuxt-link-exact-active {
-  @apply border-t-2 opacity-100 text-primary-light lg:border-accent-light lg:border-opacity-100;
+.desktop .nuxt-link-exact-active {
+  @apply border-t-2 opacity-100 text-primary-light lg:border-primary-light lg:border-opacity-100;
 }
 </style>

@@ -5,9 +5,9 @@
     </div>
 
     <div class="lg:mx-6 flex flex-col space-y-5">
-      <BaseHeading class="text-primary-default" tag="h2" size="h3">{{
-        block.heading
-      }}</BaseHeading>
+      <BaseHeading class="text-primary-default" tag="h2" size="h3">
+        {{ block.heading }}
+      </BaseHeading>
 
       <BaseImage
         class="lg:hidden"

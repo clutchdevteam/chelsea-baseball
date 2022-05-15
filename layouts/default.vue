@@ -1,6 +1,11 @@
 <template>
   <div class="min-h-screen flex flex-col">
-    <SiteHeader :nav="mainNav" :logo="logo" :inert="hasOpenMenu" />
+    <SiteHeader
+      :nav="mainNav"
+      :legal-nav="legalNav"
+      :logo="logo"
+      :inert="hasOpenMenu"
+    />
 
     <main class="flex-1" :inert="hasOpenMenu">
       <Nuxt />
@@ -22,6 +27,7 @@ export default {
       "pageHasModalOpen",
       "isMobileMenuOpen",
       "mainNav",
+      "legalNav",
       "logo",
       "footer",
     ]),
