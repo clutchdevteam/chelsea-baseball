@@ -20,7 +20,6 @@
               class="nav-submenu"
               v-if="menu.submenus"
               :menu="menu"
-              :depth="depth + 1"
             />
 
             <nuxt-link
@@ -49,7 +48,7 @@
       <nav>
         <ul class="flex">
           <li v-for="menu in legalNav" :key="menu.id">
-            <BaseMenu :menu="menu" :depth="0" />
+            <BaseMenu :menu="menu" />
           </li>
         </ul>
       </nav>
@@ -135,18 +134,14 @@
                         v-for="menu in nav"
                         :key="menu.id"
                       >
-                        <BaseMenu
-                          class="mobile-submenu"
-                          :menu="menu"
-                          :depth="0"
-                        />
+                        <BaseMenu class="mobile-submenu" :menu="menu" />
                       </li>
                       <li
                         class="p-4 border-b border-gray-100"
                         v-for="menu in legalNav"
                         :key="menu.id"
                       >
-                        <BaseMenu :menu="menu" :depth="0" />
+                        <BaseMenu :menu="menu" />
                       </li>
                     </ul>
                   </nav>

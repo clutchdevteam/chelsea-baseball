@@ -1,5 +1,9 @@
 <template>
-  <div :id="`${menuId}-wrapper`" @keydown.stop="handleKeyPress">
+  <div
+    :id="`${menuId}-wrapper`"
+    @keydown.stop="handleKeyPress"
+    v-click-outside="closeMenu"
+  >
     <button
       @click.prevent="toggleMenu(menu)"
       :id="menuId"
@@ -14,7 +18,7 @@
     <transition name="submenu" appear>
       <ul v-show="isOpen" @keydown.esc.stop="closeMenu" :id="submenuId">
         <li v-for="(menu, index) in menu.submenus" :key="index">
-          <BaseMenu :menu="menu" :depth="depth + 1" />
+          <BaseMenu :menu="menu" />
         </li>
       </ul>
     </transition>
@@ -22,17 +26,18 @@
 </template>
 
 <script>
+import vClickOutside from "v-click-outside";
+
 export default {
+  directives: {
+    clickOutside: vClickOutside.directive,
+  },
   data() {
     return {
       isOpen: false,
     };
   },
   props: {
-    depth: {
-      type: Number,
-      required: true,
-    },
     menu: {
       type: Object,
       required: true,

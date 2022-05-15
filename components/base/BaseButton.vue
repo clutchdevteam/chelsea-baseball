@@ -1,5 +1,9 @@
 <template>
-  <nuxt-link :class="`btn btn-${theme}`" v-if="href" :to="href">
+  <nuxt-link
+    :class="`btn btn-${theme}`"
+    v-if="href"
+    :to="$formRoute({ url: href })"
+  >
     <slot />
   </nuxt-link>
 

@@ -1,5 +1,5 @@
 <template>
-  <section class="hero relative flex pt-48 lg:pt-32 mb-48">
+  <section class="hero relative flex pt-48 lg:pt-32 lg:mb-48">
     <div class="bg-clip" />
     <BaseBackgroundImage class="bg-inner-clip" :image="bgImage" />
 
