@@ -19,11 +19,11 @@
       <div class="flex flex-col space-y-5">
         <BaseHeading size="h1">{{ block.heading }}</BaseHeading>
 
-        <BaseText class="text-lg lg:text-2xl" v-if="block.subheading">
+        <BaseText v-if="block.subheading.length" class="text-2xl">
           {{ block.subheading }}
         </BaseText>
 
-        <div>
+        <div v-if="block.button.length">
           <BaseButton :href="block.button[0].link.cached_url">
             {{ block.button[0].text }}
           </BaseButton>
