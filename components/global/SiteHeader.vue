@@ -1,28 +1,72 @@
 <template>
-  <header
-    :class="`z-[51] w-full flex items-center justify-between ${
-      isHomePage ? 'absolute' : ''
-    }`"
-  >
-    <div class="p-3 z-50">
-      <BaseLink href="/" :inert="isMobileMenuOpen">
-        <BaseImage
-          class="w-24"
-          v-if="logo"
-          :src="logo.filename"
-          :alt="logo.alt"
-        />
-      </BaseLink>
+  <header class="absolute w-full z-[51] my-4 lg:my-8">
+    <div
+      class="
+        desktop
+        hidden
+        lg:flex
+        desktop-container
+        bg-black
+        relative
+        justify-between
+        items-center
+        shadow-lg
+      "
+    >
+      <nav>
+        <ul class="flex">
+          <li v-for="menu in nav" :key="menu.id">
+            <BaseMenuItem
+              class="nav-submenu"
+              v-if="menu.submenus"
+              :menu="menu"
+            />
+
+            <nuxt-link
+              class="block"
+              v-else
+              :id="menu.title.toLowerCase().replace(' ', '-')"
+              :to="$formRoute({ url: menu.link.cached_url })"
+            >
+              {{ menu.title }}
+            </nuxt-link>
+          </li>
+        </ul>
+      </nav>
+
+      <div class="absolute w-full">
+        <BaseLink href="/" :inert="isMobileMenuOpen">
+          <BaseImage
+            class="w-24 mx-auto"
+            v-if="logo"
+            :src="logo.filename"
+            :alt="logo.alt"
+          />
+        </BaseLink>
+      </div>
+
+      <nav>
+        <ul class="flex">
+          <li v-for="menu in legalNav" :key="menu.id">
+            <BaseMenu :menu="menu" />
+          </li>
+        </ul>
+      </nav>
     </div>
 
-    <nav>
-      <ul class="desktop hidden lg:flex mr-2">
-        <li v-for="menu in nav" :key="menu.id" class="px-6">
-          <BaseMenu :menu="menu" :depth="0" />
-        </li>
-      </ul>
+    <div class="mobile lg:hidden flex justify-between pl-4">
+      <div>
+        <BaseLink href="/" :inert="isMobileMenuOpen">
+          <BaseImage
+            class="w-16"
+            v-if="logo"
+            :src="logo.filename"
+            :alt="logo.alt"
+          />
+        </BaseLink>
+      </div>
 
-      <div class="mobile lg:hidden">
+      <div class="lg:hidden">
         <button
           ref="openButtonRef"
           @click="toggleMobileMenu"
@@ -32,7 +76,7 @@
           <span class="sr-only">Open main menu</span>
           <div class="p-4">
             <BaseIcon
-              class="w-8 h-8 text-primary-light"
+              class="w-8 h-8 text-white"
               file="menu-icon"
               alt="Open Menu"
             />
@@ -40,7 +84,7 @@
 
           <Portal to="mobile-menu">
             <div
-              :class="`z-[52] fixed inset-0 bg-black transition duration-150 ${
+              :class="`mobile z-[52] fixed inset-0 bg-black transition duration-150 ${
                 isMobileMenuOpen
                   ? 'bg-opacity-75'
                   : 'bg-opacity-0 pointer-events-none'
@@ -73,7 +117,7 @@
                   >
                     <span class="sr-only">Close menu</span>
                     <BaseIcon
-                      class="w-6 h-6 text-primary-light"
+                      class="w-6 h-6 text-primary-default"
                       file="close-icon"
                       alt="Close Menu"
                     />
@@ -86,31 +130,28 @@
                   <nav role="navigation">
                     <ul>
                       <li
-                        class="py-3 px-4 border-b border-gray-300"
+                        class="p-4 border-b border-gray-100"
                         v-for="menu in nav"
                         :key="menu.id"
                       >
-                        <BaseMenu :menu="menu" :depth="0" />
+                        <BaseMenu class="mobile-submenu" :menu="menu" />
+                      </li>
+                      <li
+                        class="p-4 border-b border-gray-100"
+                        v-for="menu in legalNav"
+                        :key="menu.id"
+                      >
+                        <BaseMenu :menu="menu" />
                       </li>
                     </ul>
                   </nav>
-
-                  <div class="px-3 py-6">
-                    <BaseLink href="/">
-                      <BaseImage
-                        v-if="logo"
-                        :src="logo.filename"
-                        :alt="logo.alt"
-                      />
-                    </BaseLink>
-                  </div>
                 </div>
               </div>
             </div>
           </Portal>
         </button>
       </div>
-    </nav>
+    </div>
   </header>
 </template>
 
@@ -124,6 +165,10 @@ export default {
   },
   props: {
     nav: {
+      type: Array,
+      required: true,
+    },
+    legalNav: {
       type: Array,
       required: true,
     },
@@ -166,16 +211,43 @@ export default {
 </script>
 
 <style lang="postcss">
-nav ul li div a,
-nav ul li div div button {
-  @apply p-6 text-black font-semibold border-t-2 border-transparent opacity-75;
+.desktop nav {
+  @apply z-50;
+}
+.desktop nav ul li div button,
+.desktop nav ul li a {
+  @apply text-white p-6;
 }
 
-.desktop li div div ul {
-  @apply absolute bg-white drop-shadow-md z-50;
+.desktop nav ul li > a,
+.nav-submenu button {
+  @apply bg-black;
 }
 
-.nuxt-link-exact-active {
-  @apply border-t-2 opacity-100 text-primary-light lg:border-accent-light lg:border-opacity-100;
+.desktop nav ul li .nav-submenu ul {
+  @apply absolute bg-white shadow-md mt-2;
+
+  z-index: -1;
+}
+
+.desktop nav ul li .nav-submenu ul li a {
+  @apply text-primary-default px-6 p-3;
+}
+
+.desktop .nuxt-link-exact-active {
+  @apply bg-white bg-opacity-10;
+}
+
+.mobile nav,
+.mobile nav button {
+  @apply font-semibold  text-lg;
+}
+
+.mobile-submenu ul a {
+  @apply text-black p-2;
+}
+
+.mobile .nuxt-link-exact-active {
+  @apply text-primary-default;
 }
 </style>

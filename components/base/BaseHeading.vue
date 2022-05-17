@@ -40,21 +40,23 @@ h6 {
 }
 
 .h1,
-.h2,
-.h3 {
+.h2 {
   @apply font-display font-semibold uppercase;
 }
 
 .h1 {
-  @apply text-7xl lg:text-8xl;
+  @apply leading-tight;
+  font-size: 48px;
 }
 
 .h2 {
-  @apply text-3xl lg:text-4xl;
+  font-size: 36px;
 }
 
 .h3 {
-  @apply text-2xl lg:text-3xl;
+  @apply font-semibold;
+
+  font-size: 20px;
 }
 
 .h4 {
@@ -63,5 +65,24 @@ h6 {
 
 .h5 {
   @apply text-xl font-semibold;
+}
+
+@screen lg {
+  .h1 {
+    font-size: 65px;
+  }
+
+  .h2 {
+    font-size: 32px;
+  }
+
+  .h4 {
+  }
+
+  .h5 {
+  }
+
+  .h6 {
+  }
 }
 </style>

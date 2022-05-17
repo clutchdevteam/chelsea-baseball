@@ -1,7 +1,7 @@
 <template>
   <div>
     <template v-if="menu.submenus">
-      <BaseMenuItem :menu="menu" :depth="depth + 1" />
+      <BaseMenuItem :menu="menu" />
     </template>
 
     <nuxt-link
@@ -20,10 +20,6 @@ export default {
   props: {
     menu: {
       type: Object,
-      required: true,
-    },
-    depth: {
-      type: Number,
       required: true,
     },
   },
