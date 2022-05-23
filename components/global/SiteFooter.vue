@@ -49,6 +49,7 @@
               <BaseIcon
                 class="w-4 h-4 inline-block -mt-1 ml-2"
                 file="facebook-icon"
+                alt="facebook icon"
               />
             </a>
           </div>
