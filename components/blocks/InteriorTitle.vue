@@ -8,14 +8,6 @@
         <BaseHeading class="text-center text-white mb-10" size="h1">
           {{ block.heading }}
         </BaseHeading>
-
-        <!-- <div v-if="block.rosterImage" class="absolute w-full">
-        <BaseImage
-          class="w-full lg:w-1/2 mx-auto"
-          :src="block.rosterImage.filename"
-          :alt="block.alt"
-        />
-      </div> -->
       </div>
     </div>
 
