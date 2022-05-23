@@ -13,7 +13,7 @@
 
     <div
       class="relative desktop-container -mt-24 lg:-mt-12 z-40"
-      v-if="block.rosterImage"
+      v-if="block.rosterImage.length"
     >
       <BaseImage
         class="w-full lg:w-1/2 mx-auto"
