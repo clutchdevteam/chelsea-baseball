@@ -17,9 +17,9 @@
       :alt="block.image.alt"
     />
 
-    <BaseHeading class="text-primary-default" size="h2">{{
-      block.heading
-    }}</BaseHeading>
+    <BaseHeading class="text-primary-default" size="h2">
+      {{ block.heading }}
+    </BaseHeading>
   </section>
 </template>
 
