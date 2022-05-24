@@ -6,8 +6,8 @@
           desktop-container
           grid
           lg:grid-cols-4
-          py-32
-          lg:py-20
+          py-44
+          lg:py-24
           gap-12
           items-center
         "
@@ -42,10 +42,10 @@ export default {
 .bg-inner-clip {
   @apply absolute h-full w-full bg-primary-dark inset-0;
   z-index: -2;
-  clip-path: polygon(0 0, 100% 15%, 100% 100%, 0 85%);
+  clip-path: polygon(0 0, 100% 10%, 100% 100%, 0 90%);
 }
 .bg-clip {
   @apply bg-gray-100;
-  clip-path: polygon(0 15%, 100% 0, 100% 85%, 0 100%);
+  clip-path: polygon(0 10%, 100% 0, 100% 90%, 0 100%);
 }
 </style>

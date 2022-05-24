@@ -5,6 +5,8 @@
       flex flex-col
       md:flex-row
       items-center
+      my:16
+      lg:my-44
       space-y-12
       md:space-x-20
     "
