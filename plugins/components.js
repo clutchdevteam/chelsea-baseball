@@ -7,6 +7,7 @@ import Highlight from "~/components/blocks/Highlight.vue";
 import HomepageHero from "~/components/blocks/HomepageHero.vue";
 import InteriorTitle from "~/components/blocks/InteriorTitle.vue";
 import PdfEntry from "~/components/blocks/PdfEntry.vue";
+import Richtext from "~/components/blocks/Richtext.vue";
 
 Vue.component("page", Page);
 Vue.component("Interior", Interior);
@@ -16,3 +17,4 @@ Vue.component("Highlight", Highlight);
 Vue.component("HomepageHero", HomepageHero);
 Vue.component("InteriorTitle", InteriorTitle);
 Vue.component("PdfEntry", PdfEntry);
+Vue.component("Richtext", Richtext);
