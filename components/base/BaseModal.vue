@@ -7,7 +7,11 @@
   >
     <slot name="button" />
     <Portal v-if="isOpen" to="modal">
-      <div class="modal-wrapper" @keydown.esc="closeModal">
+      <div
+        class="modal-wrapper"
+        @keydown.esc="closeModal"
+        v-click-outside="closeModal"
+      >
         <div class="modal-content">
           <button @click="closeModal" ref="closeButtonRef" type="button">
             Close Modal
@@ -22,8 +26,12 @@
 <script>
 import { mapState } from "vuex";
 import { Portal } from "portal-vue";
+import vClickOutside from "v-click-outside";
 
 export default {
+  directives: {
+    clickOutside: vClickOutside.directive,
+  },
   components: {
     Portal,
   },
@@ -37,11 +45,14 @@ export default {
   },
   methods: {
     async closeModal() {
-      this.isOpen = false;
-      await this.$store.commit("modal/isModalOpen", false);
-      await this.$nextTick();
-      await this.$nextTick();
-      this.$refs.openButtonRef?.focus();
+      if (this.isOpen) {
+        this.isOpen = false;
+
+        await this.$store.commit("modal/isModalOpen", false);
+        await this.$nextTick();
+        await this.$nextTick();
+        this.$refs.openButtonRef?.focus();
+      }
     },
     async openModal() {
       this.isOpen = true;

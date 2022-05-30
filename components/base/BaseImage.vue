@@ -20,6 +20,7 @@ export default {
      */
     alt: {
       type: String,
+      default: " ",
       required: true,
     },
   },
