@@ -1,6 +1,7 @@
 import Vue from "vue";
 import Page from "~/components/Page.vue";
 import Interior from "~/components/Interior.vue";
+import Contact from "~/components/Contact.vue";
 import TwoColImageLeft from "~/components/blocks/TwoColImageLeft.vue";
 import CallOut from "~/components/blocks/CallOut.vue";
 import NewsCard from "~/components/atoms/NewsCard";
@@ -15,6 +16,7 @@ import SponsorsCarousel from "~/components/blocks/SponsorsCarousel.vue";
 
 Vue.component("page", Page);
 Vue.component("Interior", Interior);
+Vue.component("Contact", Contact);
 Vue.component("TwoColImageLeft", TwoColImageLeft);
 Vue.component("CallOut", CallOut);
 Vue.component("NewsCard", NewsCard);
