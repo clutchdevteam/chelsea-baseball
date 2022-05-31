@@ -44,7 +44,7 @@
             </ul>
           </nav>
           <div>
-            <a href="https://facebook.com">
+            <a href="https://www.facebook.com/profile.php?id=100057089036250">
               Follow us on Facebook!
               <BaseIcon
                 class="w-4 h-4 inline-block -mt-1 ml-2"
