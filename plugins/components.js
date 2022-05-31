@@ -10,6 +10,8 @@ import HomepageHero from "~/components/blocks/HomepageHero.vue";
 import InteriorTitle from "~/components/blocks/InteriorTitle.vue";
 import PdfEntry from "~/components/blocks/PdfEntry.vue";
 import Richtext from "~/components/blocks/Richtext.vue";
+import WinnerCarousel from "~/components/blocks/WinnerCarousel.vue";
+import SponsorsCarousel from "~/components/blocks/SponsorsCarousel.vue";
 
 Vue.component("page", Page);
 Vue.component("Interior", Interior);
@@ -22,3 +24,5 @@ Vue.component("HomepageHero", HomepageHero);
 Vue.component("InteriorTitle", InteriorTitle);
 Vue.component("PdfEntry", PdfEntry);
 Vue.component("Richtext", Richtext);
+Vue.component("WinnerCarousel", WinnerCarousel);
+Vue.component("SponsorsCarousel", SponsorsCarousel);
