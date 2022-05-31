@@ -38,8 +38,9 @@
                 <BaseLink
                   :href="menu.link.cached_url"
                   class="text-white opacity-75 border-none"
-                  >{{ menu.title }}</BaseLink
                 >
+                  {{ menu.title }}
+                </BaseLink>
               </li>
             </ul>
           </nav>
