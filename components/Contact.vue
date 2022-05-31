@@ -41,6 +41,12 @@
               required
             />
 
+            <BaseRadioGroup v-model="form.reason" @change="change">
+              <p class="font-display mb-2 font-semibold">Reason</p>
+              <BaseRadio value="Info">More Info</BaseRadio>
+              <BaseRadio value="Sponsorship">Sponsorship</BaseRadio>
+            </BaseRadioGroup>
+
             <p class="hidden">
               <label>
                 Don't fill this out if you're human: <input name="bot-field" />
@@ -83,6 +89,7 @@ export default {
   data() {
     return {
       form: {
+        reason: "Info",
         name: "",
         email: "",
         phone: "",

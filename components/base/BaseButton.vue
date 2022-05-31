@@ -49,7 +49,7 @@ export default {
   }
 
   &.btn-secondary {
-    @apply bg-primary-dark text-white;
+    @apply bg-primary-default hover:bg-primary-dark text-white;
   }
 }
 
