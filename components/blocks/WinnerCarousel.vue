@@ -6,6 +6,7 @@
 
     <BaseCarousel
       class="bg-white shadow-lg p-6 lg:p-12"
+      :desktop-slides-per-view="1"
       has-pagination
       has-navigation
     >

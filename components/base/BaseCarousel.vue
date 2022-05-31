@@ -34,9 +34,14 @@ export default {
       default: 0,
     },
     /** The number of slides per view. If not set, it will be determined automatically based on the slides’ width. */
-    slidesPerView: {
+    mobileSlidesPerView: {
       type: Number,
       default: 1,
+    },
+    /** The number of slides per view. If not set, it will be determined automatically based on the slides’ width. */
+    desktopSlidesPerView: {
+      type: Number,
+      default: 5,
     },
     /** Whether the slider has navigation (previous and next slide) buttons. */
     hasNavigation: {
@@ -79,10 +84,18 @@ export default {
   mounted() {
     this.swiper = new Swiper(this.$refs.swiperRef, {
       initialSlide: this.activeIndex,
-      slidesPerView: this.slidesPerView ?? "auto",
+      slidesPerView: this.mobileSlidesPerView ?? "auto",
       watchOverflow: true,
       centeredSlides: true,
       loop: true,
+      breakpoints: {
+        640: {
+          slidesPerView: 3,
+        },
+        960: {
+          slidesPerView: this.desktopSlidesPerView ?? "auto",
+        },
+      },
       navigation: {
         prevEl: this.$refs.prevButtonRef,
         nextEl: this.$refs.nextButtonRef,
