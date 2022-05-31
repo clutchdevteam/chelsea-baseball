@@ -13,6 +13,12 @@
         />
       </BaseCarouselSlide>
     </BaseCarousel>
+
+    <div class="flex justify-center w-full mt-12">
+      <BaseButton theme="tertiary" :href="block.button[0].link.cached_url">
+        {{ block.button[0].text }}
+      </BaseButton>
+    </div>
   </section>
 </template>
 
