@@ -6,7 +6,7 @@
 
     <select
       :id="fieldId"
-      class="border border-gray-300 rounded-md p-2"
+      class="border border-gray-300 p-2"
       v-bind="$attrs"
       v-on="listeners"
       :required="isRequired"
