@@ -19,9 +19,9 @@
 </template>
 
 <script>
-import Swiper, { Navigation, Pagination, A11y } from "swiper";
+import Swiper, { Navigation, Pagination, A11y, Autoplay } from "swiper";
 
-Swiper.use([Navigation, Pagination, A11y]);
+Swiper.use([Navigation, Pagination, A11y, Autoplay]);
 
 /**
  * A swipeable slider (AKA carousel or slideshow).
@@ -87,6 +87,10 @@ export default {
       slidesPerView: this.mobileSlidesPerView ?? "auto",
       watchOverflow: true,
       centeredSlides: true,
+      autoplay: {
+        delay: 3000,
+        pauseOnMouseEnter: true,
+      },
       loop: true,
       breakpoints: {
         640: {
