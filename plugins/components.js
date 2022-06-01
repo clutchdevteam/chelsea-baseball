@@ -10,6 +10,8 @@ import HomepageHero from "~/components/blocks/HomepageHero.vue";
 import InteriorTitle from "~/components/blocks/InteriorTitle.vue";
 import PdfEntry from "~/components/blocks/PdfEntry.vue";
 import Richtext from "~/components/blocks/Richtext.vue";
+import PlayerCard from "~/components/atoms/PlayerCard";
+import RosterGrid from "~/components/blocks/RosterGrid";
 
 Vue.component("page", Page);
 Vue.component("Interior", Interior);
@@ -22,3 +24,5 @@ Vue.component("HomepageHero", HomepageHero);
 Vue.component("InteriorTitle", InteriorTitle);
 Vue.component("PdfEntry", PdfEntry);
 Vue.component("Richtext", Richtext);
+Vue.component("PlayerCard", PlayerCard);
+Vue.component("RosterGrid", RosterGrid);

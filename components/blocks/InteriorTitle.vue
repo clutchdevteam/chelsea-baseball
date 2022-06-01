@@ -12,7 +12,7 @@
     </div>
 
     <div
-      class="relative desktop-container -mt-24 lg:-mt-12 z-40"
+      class="relative desktop-container -mt-24 lg:-mt-12 z-30"
       v-if="block.rosterImage.filename.length"
     >
       <BaseImage
