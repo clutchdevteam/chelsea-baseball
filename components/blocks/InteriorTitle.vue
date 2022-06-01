@@ -2,7 +2,13 @@
   <div>
     <div class="relative pt-24 lg:pt-32">
       <div class="bg-clip" />
-      <BaseBackgroundImage class="bg-inner-clip z-0" :image="bgImage" />
+      <BaseBackgroundImage
+        class="bg-inner-clip z-0"
+        :image="{
+          src: './bg_image.jpg',
+          alt: 'A crowd of people cheer at a baseball stadium',
+        }"
+      />
 
       <div class="desktop-container relative pt-6 pb-24 lg:pb-16">
         <BaseHeading class="text-center text-white mb-10" size="h1">
