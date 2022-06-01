@@ -6,7 +6,7 @@
 
     <textarea
       :id="id"
-      class="border border-gray-300 rounded-md p-2"
+      class="border border-gray-300 p-2"
       :placeholder="placeholder"
       :required="required"
       :rows="rows"
@@ -17,38 +17,38 @@
 </template>
 
 <script>
-  export default {
-    inheritAttrs: false,
-    model: {
-      prop: 'value',
-      event: 'input',
+export default {
+  inheritAttrs: false,
+  model: {
+    prop: "value",
+    event: "input",
+  },
+  props: {
+    label: {
+      type: String,
+      required: true,
     },
-    props: {
-      label: {
-        type: String,
-        required: true,
-      },
-      rows: {
-        type: Number,
-        default: 4,
-      },
-      placeholder: {
-        type: String,
-        default: '',
-      },
-      required: {
-        type: Boolean,
-        default: false,
-      },
+    rows: {
+      type: Number,
+      default: 4,
     },
-    computed: {
-      listeners() {
-        const { input, ...listeners } = this.$listeners
-        return listeners
-      },
-      id() {
-        return this.label.toLowerCase().replace(' ', '-')
-      },
+    placeholder: {
+      type: String,
+      default: "",
     },
-  }
+    required: {
+      type: Boolean,
+      default: false,
+    },
+  },
+  computed: {
+    listeners() {
+      const { input, ...listeners } = this.$listeners;
+      return listeners;
+    },
+    id() {
+      return this.label.toLowerCase().replace(" ", "-");
+    },
+  },
+};
 </script>

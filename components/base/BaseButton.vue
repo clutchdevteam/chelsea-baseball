@@ -49,7 +49,15 @@ export default {
   }
 
   &.btn-secondary {
-    @apply bg-primary-dark text-white;
+    @apply bg-primary-default hover:bg-primary-dark text-white;
+  }
+
+  &.btn-tertiary {
+    @apply border-primary-default border-2 text-primary-default;
+
+    &:hover {
+      @apply bg-primary-default text-white;
+    }
   }
 }
 

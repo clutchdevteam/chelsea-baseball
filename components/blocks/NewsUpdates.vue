@@ -1,5 +1,9 @@
 <template>
-  <section class="my-20 base-wrapper">
+  <section class="desktop-container my-24 lg:my-32">
+    <BaseHeading size="h2" class="text-primary-default text-center">
+      News &amp; Events
+    </BaseHeading>
+
     <!-- Styling and card limit for mobile/tablet screen sizes -->
     <div class="flex flex-col items-center lg:hidden">
       <NewsCard

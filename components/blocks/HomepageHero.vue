@@ -16,10 +16,13 @@
         lg:space-y-0
       "
     >
-      <div class="flex flex-col space-y-5">
+      <div class="flex flex-col space-y-6">
         <BaseHeading size="h1">{{ block.heading }}</BaseHeading>
 
-        <BaseText v-if="block.subheading.length" class="text-2xl">
+        <BaseText
+          v-if="block.subheading.length"
+          class="text-2xl leading-normal"
+        >
           {{ block.subheading }}
         </BaseText>
 

@@ -1,6 +1,7 @@
 import Vue from "vue";
 import Page from "~/components/Page.vue";
 import Interior from "~/components/Interior.vue";
+import Contact from "~/components/Contact.vue";
 import TwoColImageLeft from "~/components/blocks/TwoColImageLeft.vue";
 import CallOut from "~/components/blocks/CallOut.vue";
 import NewsCard from "~/components/atoms/NewsCard";
@@ -12,9 +13,12 @@ import PdfEntry from "~/components/blocks/PdfEntry.vue";
 import Richtext from "~/components/blocks/Richtext.vue";
 import PlayerCard from "~/components/atoms/PlayerCard";
 import RosterGrid from "~/components/blocks/RosterGrid";
+import WinnerCarousel from "~/components/blocks/WinnerCarousel.vue";
+import SponsorsCarousel from "~/components/blocks/SponsorsCarousel.vue";
 
 Vue.component("page", Page);
 Vue.component("Interior", Interior);
+Vue.component("Contact", Contact);
 Vue.component("TwoColImageLeft", TwoColImageLeft);
 Vue.component("CallOut", CallOut);
 Vue.component("NewsCard", NewsCard);
@@ -26,3 +30,5 @@ Vue.component("PdfEntry", PdfEntry);
 Vue.component("Richtext", Richtext);
 Vue.component("PlayerCard", PlayerCard);
 Vue.component("RosterGrid", RosterGrid);
+Vue.component("WinnerCarousel", WinnerCarousel);
+Vue.component("SponsorsCarousel", SponsorsCarousel);

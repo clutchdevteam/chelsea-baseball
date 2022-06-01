@@ -3,7 +3,12 @@
     <slot />
   </a>
 
-  <nuxt-link v-else class="cursor-pointer" :to="href" v-bind="$attrs">
+  <nuxt-link
+    v-else
+    class="cursor-pointer"
+    :to="$formRoute({ url: href })"
+    v-bind="$attrs"
+  >
     <slot />
   </nuxt-link>
 </template>
