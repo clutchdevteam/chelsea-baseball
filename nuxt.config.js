@@ -28,6 +28,53 @@ export default {
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { hid: "description", name: "description", content: "" },
       { name: "format-detection", content: "telephone=no" },
+      {
+        hid: "og:url",
+        property: "og:url",
+        content: "https://www.chelseabaseballclub.com",
+      },
+      {
+        hid: "og:title",
+        property: "og:title",
+        content: "Chelsea Baseball Club",
+      },
+      {
+        hid: "og:description",
+        property: "og:description",
+        content:
+          'Committed to the athletic and "life skills" development for each athlete in which it serves.',
+      },
+      {
+        hid: "og:image",
+        property: "og:image",
+        content: "https://chelseabaseballclub.com/og-image.png",
+      },
+      {
+        hid: "twitter:url",
+        name: "twitter:url",
+        content: "https://chelseabaseballclub.com",
+      },
+      {
+        hid: "twitter:title",
+        name: "twitter:title",
+        content: "Chelsea Baseball Club",
+      },
+      {
+        hid: "twitter:description",
+        name: "twitter:description",
+        content:
+          'Committed to the athletic and "life skills" development for each athlete in which it serves.',
+      },
+      {
+        hid: "twitter:card",
+        name: "twitter:card",
+        content: "summary_large_image",
+      },
+      {
+        hid: "twitter:image",
+        name: "twitter:image",
+        content: "https://chelseabaseballclub.com/og-image.png",
+      },
     ],
     link: [
       { rel: "icon", type: "image/x-icon", href: "/favicon.ico" },
