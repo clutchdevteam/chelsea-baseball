@@ -1,7 +1,13 @@
 <template>
   <section class="hero relative flex pt-48 lg:pt-32 lg:mb-48">
     <div class="bg-clip" />
-    <BaseBackgroundImage class="bg-inner-clip" :image="bgImage" />
+    <BaseBackgroundImage
+      class="bg-inner-clip"
+      :image="{
+        src: './bg_image.jpg',
+        alt: 'A crowd of people cheer at a baseball stadium',
+      }"
+    />
 
     <div
       class="
@@ -47,25 +53,6 @@ export default {
     block: {
       type: Object,
       required: true,
-    },
-  },
-  computed: {
-    bgImage() {
-      let image = {};
-
-      if (this.block.backgroundImage.filename.length) {
-        image = {
-          src: this.block.backgroundImage.filename,
-          alt: this.block.backgroundImage.alt,
-        };
-      } else {
-        image = {
-          src: "./bg_image.png",
-          alt: "A crowd of people cheer at a baseball stadium",
-        };
-      }
-
-      return image;
     },
   },
 };

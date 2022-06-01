@@ -35,6 +35,7 @@
                 class="flex w-1/2"
                 src="../../assets/images/cbc_colorlogo.png"
                 alt="CBC Logo"
+                loading="lazy"
               />
             </div>
           </div>
@@ -72,6 +73,7 @@
               src="../../assets/images/cbc_colorlogo.png"
               alt="CBC Logo"
               class="w-3/4 mx-auto my-16"
+              loading="lazy"
             />
           </div>
           <div class="p-8 lg:p-12 lg:col-span-3">

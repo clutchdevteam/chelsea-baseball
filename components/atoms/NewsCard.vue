@@ -12,6 +12,7 @@
         v-else
         class="w-auto h-14 my-3"
         src="../../assets/images/cbc_colorlogo.png"
+        loading="lazy"
       />
     </div>
 
