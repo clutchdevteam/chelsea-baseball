@@ -6,8 +6,8 @@
     <div
       class="
         desktop-container
-        flex flex-col
-        lg:flex-row
+        grid
+        lg:grid-cols-4
         relative
         items-center
         z-30
@@ -16,13 +16,10 @@
         lg:space-y-0
       "
     >
-      <div class="flex flex-col space-y-6">
+      <div class="flex flex-col space-y-5 col-span-2">
         <BaseHeading size="h1">{{ block.heading }}</BaseHeading>
 
-        <BaseText
-          v-if="block.subheading.length"
-          class="text-2xl leading-normal"
-        >
+        <BaseText v-if="block.subheading.length" class="text-2xl">
           {{ block.subheading }}
         </BaseText>
 
@@ -33,11 +30,13 @@
         </div>
       </div>
 
-      <BaseImage
-        class="w-full max-w-[450px] lg:translate-y-16"
-        :src="block.image.filename"
-        :alt="block.image.alt"
-      />
+      <div class="col-span-2">
+        <BaseImage
+          class="w-auto mx-auto max-h-[540px] lg:translate-y-16"
+          :src="block.image.filename"
+          :alt="block.image.alt"
+        />
+      </div>
     </div>
   </section>
 </template>
@@ -75,7 +74,7 @@ export default {
 <style scoped>
 .bg-clip {
   @apply absolute h-full w-full bg-gray-200;
-  clip-path: polygon(0 0, 100% 0, 100% 65%, 0 60%);
+  clip-path: polygon(0 0, 100% 0, 100% 70%, 0 65%);
 }
 .bg-inner-clip {
   clip-path: polygon(0 0, 100% 0, 100% 80%, 0 85%);
