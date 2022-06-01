@@ -7,16 +7,30 @@
   >
     <slot name="button" />
     <Portal v-if="isOpen" to="modal">
-      <div
-        class="modal-wrapper"
-        @keydown.esc="closeModal"
-        v-click-outside="closeModal"
-      >
-        <div class="modal-content">
-          <button @click="closeModal" ref="closeButtonRef" type="button">
-            Close Modal
+      <div class="modal-wrapper" @keydown.esc="closeModal">
+        <div class="modal-content" v-click-outside="closeModal">
+          <button
+            class="
+              absolute
+              left-0
+              top-0
+              mt-2
+              ml-2
+              lg:-mt-3 lg:-ml-3
+              bg-white
+              p-1
+              rounded-full
+            "
+            @click="closeModal"
+            ref="closeButtonRef"
+            type="button"
+          >
+            <BaseIcon class="h-4 w-4 text-primary-default" file="close-icon" />
+            <span class="sr-only">Close Modal</span>
           </button>
-          <slot name="content" />
+          <div class="bg-white">
+            <slot name="content" />
+          </div>
         </div>
       </div>
     </Portal>
@@ -79,7 +93,17 @@ export default {
 }
 
 .modal-content {
-  @apply mx-6;
-  background-color: white;
+  position: relative;
+  width: 90%;
+  max-height: 90%;
+  min-height: 350px;
+  max-width: 768px;
+  overflow-y: scroll;
+}
+
+@screen lg {
+  .modal-content {
+    overflow-y: visible;
+  }
 }
 </style>
