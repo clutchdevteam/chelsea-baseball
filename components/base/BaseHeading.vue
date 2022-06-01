@@ -67,6 +67,10 @@ h6 {
   @apply text-xl font-semibold;
 }
 
+.h6 {
+  @apply text-lg font-normal leading-tight;
+}
+
 @screen lg {
   .h1 {
     font-size: 65px;

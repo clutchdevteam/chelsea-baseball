@@ -11,6 +11,8 @@ import HomepageHero from "~/components/blocks/HomepageHero.vue";
 import InteriorTitle from "~/components/blocks/InteriorTitle.vue";
 import PdfEntry from "~/components/blocks/PdfEntry.vue";
 import Richtext from "~/components/blocks/Richtext.vue";
+import PlayerCard from "~/components/atoms/PlayerCard";
+import RosterGrid from "~/components/blocks/RosterGrid";
 import WinnerCarousel from "~/components/blocks/WinnerCarousel.vue";
 import SponsorsCarousel from "~/components/blocks/SponsorsCarousel.vue";
 
@@ -26,5 +28,7 @@ Vue.component("HomepageHero", HomepageHero);
 Vue.component("InteriorTitle", InteriorTitle);
 Vue.component("PdfEntry", PdfEntry);
 Vue.component("Richtext", Richtext);
+Vue.component("PlayerCard", PlayerCard);
+Vue.component("RosterGrid", RosterGrid);
 Vue.component("WinnerCarousel", WinnerCarousel);
 Vue.component("SponsorsCarousel", SponsorsCarousel);
