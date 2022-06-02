@@ -1,5 +1,5 @@
 <template>
-  <div class="max-w-3xl mx-auto my-12 lg:my-24">
+  <div class="max-w-3xl mx-6 my-12 lg:my-24">
     <BaseRichText class="rich-text-block" :content="block.body" />
   </div>
 </template>
@@ -21,7 +21,7 @@ export default {
 .rich-text-block ol,
 .rich-text-block blockquote,
 .rich-text-block a {
-  @apply mx-12;
+  @apply mx-12 break-words;
 }
 
 .rich-text-block img {
