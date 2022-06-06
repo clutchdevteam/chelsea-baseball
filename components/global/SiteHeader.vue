@@ -35,7 +35,7 @@
       </nav>
 
       <div class="absolute w-full">
-        <BaseLink href="/" :inert="isMobileMenuOpen">
+        <BaseLink href="" :inert="isMobileMenuOpen">
           <BaseImage
             class="w-24 mx-auto"
             v-if="logo"
@@ -56,7 +56,7 @@
 
     <div class="mobile lg:hidden flex justify-between pl-4">
       <div>
-        <BaseLink href="/" :inert="isMobileMenuOpen">
+        <BaseLink href="" :inert="isMobileMenuOpen">
           <BaseImage
             class="w-16"
             v-if="logo"
